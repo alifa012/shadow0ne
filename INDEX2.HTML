@@ -142,54 +142,18 @@
         </div>
     </div>
     <!-- Firebase App (the core Firebase SDK) -->
-   <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script>
-        // TODO: Replace with your Firebase project configuration
-       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
-  authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
-  projectId: "shadowlogsshop-ec4ca",
-  storageBucket: "shadowlogsshop-ec4ca.firebasestorage.app",
-  messagingSenderId: "709594271975",
-  appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
-  measurementId: "G-WNEH2RQPVP"
-};
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Listen for auth state changes
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                document.getElementById('user-email').textContent = user.email || "N/A";
-                document.getElementById('user-name').textContent = user.displayName || "Anonymous";
-                // Format creation time
-                if (user.metadata && user.metadata.creationTime) {
-                    const date = new Date(user.metadata.creationTime);
-                    const options = { year: 'numeric', month: 'long' };
-                    document.getElementById('user-join').textContent = date.toLocaleDateString(undefined, options);
-                } else {
-                    document.getElementById('user-join').textContent = "N/A";
-                }
-            } else {
-                // No user is signed in, redirect to login or home
-                window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
-            }
-        });-->
-            <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script>
+    // Your correct Firebase config
     const firebaseConfig = {
-    apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
-    authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
-    projectId: "shadowlogsshop-ec4ca",
-    storageBucket: "shadowlogsshop-ec4ca.appspot.com", // <-- FIXED HERE
-    messagingSenderId: "709594271975",
-    appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
-    measurementId: "G-WNEH2RQPVP"
+      apiKey: "AIzaSyBXC6A6NaL1WSHrfCNAuMeYZqx9DFZyToY",
+      authDomain: "shadowlogsshop-ec4ca.firebaseapp.com",
+      projectId: "shadowlogsshop-ec4ca",
+      storageBucket: "shadowlogsshop-ec4ca.appspot.com", // <-- FIXED HERE
+      messagingSenderId: "709594271975",
+      appId: "1:709594271975:web:6a4bfc8bdcbc51c2859242",
+      measurementId: "G-WNEH2RQPVP"
     };
 
     firebase.initializeApp(firebaseConfig);
@@ -210,22 +174,21 @@ const firebaseConfig = {
             window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
         }
     });
-    </script>
 
-        // Emoji selection (customize as you like)
-        document.addEventListener('DOMContentLoaded', function() {
-            const emojis = ["😎", "👤", "🦸‍♂️", "🌟"];
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-            document.getElementById('profile-emoji').textContent = randomEmoji;
+    // Emoji selection (customize as you like)
+    document.addEventListener('DOMContentLoaded', function() {
+        const emojis = ["😎", "👤", "🦸‍♂️", "🌟"];
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        document.getElementById('profile-emoji').textContent = randomEmoji;
+    });
+
+    function logout() {
+        firebase.auth().signOut().then(function() {
+            window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
+        }).catch(function(error) {
+            alert("Error logging out: " + error.message);
         });
-
-        function logout() {
-            firebase.auth().signOut().then(function() {
-                window.location.href = 'https://endearing-daffodil-6bfecd.netlify.app/';
-            }).catch(function(error) {
-                alert("Error logging out: " + error.message);
-            });
-        }
+    }
     </script>
 </body>
 </html>
